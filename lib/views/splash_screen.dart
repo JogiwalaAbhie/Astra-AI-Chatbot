@@ -1,0 +1,43 @@
+import 'dart:async';
+import 'package:astra_abhie_ai/views/widgets/neon_logo.dart';
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, "/home-shell");
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const NeonLogo(size: 130),
+                const
+                 SizedBox(height: 20),
+                  Lottie.asset('assets/lottie/loader.json', height: 90),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
